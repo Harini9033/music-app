@@ -23,19 +23,19 @@ let navigate=useNavigate()
     e.preventDefault()
     try{
       setIsLoading(true)
-let obj=await signInWithEmailAndPassword(__AUTH,email,password)
-let{user}=obj;
-// console.log(obj)
-console.log(user)
-if(user.emailVerified===true){
-  toast.success("Login Successfully")
-  setAuthUser(user)
-  navigate("/")
-}else{
-  toast.error("Verify your email")
-  sendEmailVerification(user)
- 
-}
+      let obj=await signInWithEmailAndPassword(__AUTH,email,password)
+      let{user}=obj;
+      // console.log(obj)
+      // console.log(user)
+    if(user.emailVerified===true){
+      toast.success("Login Successfully")
+      setAuthUser(user)
+      navigate("/")
+    }else{
+      toast.error("Verify your email")
+      sendEmailVerification(user)
+    
+    }
     }
     
     catch(error){

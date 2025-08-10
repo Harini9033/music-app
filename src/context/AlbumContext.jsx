@@ -16,9 +16,10 @@ let AlbumProvider=(props)=>{
             try{
                 setIsLoading(true)
                let album_collection= collection(__DB,"album_collection")
+               console.log("Album Collections....", album_collection);
                let albumSnapshot=await getDocs(album_collection)
                let albumList=albumSnapshot.docs.map(doc=>doc.data())
-               console.log(albumList)
+               console.log("album list",albumList);
                setAlbums(albumList)
             }catch(error){
                 console.log(error)
